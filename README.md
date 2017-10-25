@@ -1,4 +1,4 @@
-#**Traffic Sign Recognition** 
+# **Traffic Sign Recognition** 
 ---
 
 [//]: # (Image References)
@@ -34,11 +34,11 @@
 [link1]: http://yann.lecun.com/exdb/publis/pdf/sermanet-ijcnn-11.pdf
 [link2]: https://www.cs.nyu.edu/~fergus/papers/zeilerECCV2014.pdf
 
-##Overview
+## Overview
 
 The goal of this project is to build a traffic sign recognition pipeline based on deep neural nets which is trained to classify German traffic signs.
 
-##Project Analysis
+## Project Analysis
 
 The pipeline in 4 main sections which are:
 
@@ -49,7 +49,7 @@ The pipeline in 4 main sections which are:
 
 ---
 
-###1. Data set Summary and Exploration
+### 1. Data set Summary and Exploration
 
 In this section, the dataset is loaded and analyzed.The data is divided into three chunks which are testing, validation and testing as follows:
 
@@ -76,11 +76,11 @@ Testing Data
 
 ---
 
-###2. Model Design and Training
+### 2. Model Design and Training
 
 In this section the model architecture is designed and trained using processed training data.
 
-####Training data PreProcessing
+#### Training data PreProcessing
 
 First, looking at the training data analysis we can see that the samples are biased where some classes have more samples than others which affects the training performance.Therefore, synthesized data is added by rotating, translating and blurring the original training dataset in order to have nearly unbiased distribution of the training data keeping the validation data and testing data unchanged.
 
@@ -97,7 +97,7 @@ Finally, the training data is preprocessed by transforming the images from RGB t
 
 Then the data is normalized to have around zero mean and equal standard deviation making the dataset well conditioned which will help the gradient descent to minimized the error efficiently.
 
-####Model Architecture
+#### Model Architecture
 
 The Model Architecture is a modified version of the Lenet architecture. 
 
@@ -124,7 +124,7 @@ My final model consisted of the following layers:
 
 
 
-####Training HyperParameters
+#### Training HyperParameters
 
 The training HyperParameters are configured as follows:
 
@@ -142,7 +142,7 @@ The Batch size (80) is chosen to have at least two samples for each label per ba
 
 The Optimizer (Adam Optimizer) is used as it performs learning rate decay to prevent overshooting and momentum to average the gradient from all the batches yielding a good gradient descent.
 
-####Training Results
+#### Training Results
 
 The Training process yielded **Training Data Accuarcy of 0.993** and **Validation data Accuarcy 0.963**
 
@@ -150,11 +150,11 @@ The graph below shows the Training Accuracy (red line) and Validation Accuracy (
 ![alt text][image8]
 
 ---
-###3. Model Analysis
+### 3. Model Analysis
 
 In this section the trained model performance is analyzed by means of data analysis and visualizations.The Analysis gives insight about what the model actually learned which provides more insight than the validation accuracy metric.
 
-####Training Performance
+#### Training Performance
 
 The trained network is further analyzed to see if there a class in the training data that is not well learned by the model.This is achieved by computing the misclassified training data samples for each label then getting their percentage from the whole data samples for each label.
 
@@ -164,7 +164,7 @@ MisClassfied Training data Samples
 MisClassfied Training Data Samples Percentage
 ![alt text][image10]
 
-####Visualize FeatureMaps
+#### Visualize FeatureMaps
 
 Visualizing the feature maps  get the output of a weight layer by passing as input a stimuli image through a trained layer and visualize it.
 
@@ -175,7 +175,7 @@ The visualization is done for the first convolution layer and the output for a s
 
 The result shows that the network learns to detect curves and lines and the various combinations of those detections classify the image.
 
-####Visualize Weights
+#### Visualize Weights
 
 Visualizing the weights shows the normalized weights of a certain layer as a an image which highlights the weights which has the highest values hence highest effect also the ones which has the least effect.
 
@@ -184,7 +184,7 @@ Having redundancy and randomness in the weights visualization indicates that net
 The visualization is done for the first convolution layer's weights.
 ![alt text][image12]
 
-####Visualize Activations
+#### Visualize Activations
 
 Inspired by [(Visualizing and Understanding Convolutional Networks by Matthew D. Zeiler and Rob Fergus)][link2] the first layer convolution network is visualized by passing a stimuli image and getting the output feature maps, then the feature maps are DeConvlouded where for each feature map the weights of all others is set to zero except for this feature map resulting in an image having the section of the image which this feature map detects.
 
@@ -194,11 +194,11 @@ Result for the first convloution layer
 ![alt text][image13]
 
 ---
-###4. Model Testing
+### 4. Model Testing
 
 In this section the trained model performance is tested on the test dataset showing how the train works with new data.
 
-####Full TestData Evaluation
+#### Full TestData Evaluation
 
 Evaluating the whole test dataset by the trained network yields a **test accuary of 0.932**
 
@@ -210,7 +210,7 @@ MisClassfied Test data Samples
 MisClassfied Test Data Samples Percentage
 ![alt text][image15]
 
-####Sample TestData Evaluation
+#### Sample TestData Evaluation
 
 5 German signs where randomly chosen from the test dataset and their results are deeply analyzed
 
@@ -246,5 +246,4 @@ Image 4 (Yield)
 ![alt text][image24]
 
 Image 5 (No Passing)
-![alt text][image25]"# CarND_Traffic_Sign_Classfier_P2" 
-"# CarND_Traffic_Sign_Classfier_P2" 
+![alt text][image25]"
